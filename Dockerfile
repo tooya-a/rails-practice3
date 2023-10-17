@@ -12,6 +12,12 @@ WORKDIR /app
 
 # PC上のGemfile を .（/app）にコピー
 COPY Gemfile .
+COPY Gemfile.lock .
+COPY vendor ./vendor
+
+# gemの保存先をvendor/bundleに切り替える設定
+# 通常は不要だが、ダウンロードしたgemをgitで管理するために設定している
+RUN bundle config --local path vendor/bundle
 
 # bundle installでGemfileに記述されているgemをインストール
 RUN bundle install
