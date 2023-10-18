@@ -12,6 +12,8 @@
     <td><%= board.author_name %><td>
     <td><%= board.title %><td>
     <td><%= board.body %><td>
+    <td><%= link_to '詳細を確認する', board_path(board.id) %><td>
+
   </tr>
 <% end %>
 </table>

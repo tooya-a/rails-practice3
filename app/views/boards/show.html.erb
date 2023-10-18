@@ -1,0 +1,6 @@
+<h1>掲示板詳細画面</h1>
+<p>名前: <%= @board.author_name %></p>
+<p>タイトル: <%= @board.title %></p>
+<p>本文: <%= @board.body %></p>
+<tr>
+<%= link_to '掲示板一覧に戻る', boards_path %>
