@@ -8,8 +8,12 @@ class BoardsController < ApplicationController
   end
 
   def create
-    Board.create(board_params)
-    redirect_to new_board_path
+    @board = Board.create(board_params)
+    if @board.save
+      redirect_to new_board_path, notice: "投稿完了しました"
+    else
+      render :new
+    end
   end
 
   def show
