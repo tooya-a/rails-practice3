@@ -14,6 +14,8 @@
     <td><%= board.body %><td>
     <td><%= link_to '詳細を確認する', board_path(board.id) %><td>
     <td><%= link_to '編集する', edit_board_path(board.id) %><td>
+    <td><%= button_to '削除する', board_path(board.id), method: :delete %></td>
+
 
   </tr>
 <% end %>

@@ -28,7 +28,12 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @board.update(board_params)
     redirect_to boards_path, notice: "編集完了しました"
+  end
 
+  def destroy
+    @board = Board.find(params[:id])
+    @board.destroy
+    redirect_to boards_path, notice:"削除しました！"
   end
 
   private
