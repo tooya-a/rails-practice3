@@ -1,1 +1,19 @@
-<h1>掲示板</h1>
+<h1>掲示板一覧</h1>
+
+<table>
+  <tr>
+    <th>名前</th>
+    <th>タイトル</th>
+    <th>本文</th>
+  </tr>
+
+<% @boards.each do |board| %>
+  <tr>
+    <td><%= board.author_name %><td>
+    <td><%= board.title %><td>
+    <td><%= board.body %><td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '掲示板新規作成画面', new_board_path %>
