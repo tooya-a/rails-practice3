@@ -1,29 +1,3 @@
-<%= form_with(model: @board, local: true) do |form| %>
-  <% if @board.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @board.errors.count %>件のエラーがあります</h2>
-      <ul>
-      <% @board.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="board_name">
-  <%= form.label :author_name, '名前' %>
-  <%= form.text_field :author_name %>
-  </div>
-  <div class="board_title">
-  <%= form.label :title, 'タイトル' %>
-  <%= form.text_field :title %>
-  </div>
-  </div>
-  <div class="board_body">
-  <%= form.label :body, '本文' %>
-  <%= form.text_area :body %>
-  </div>
-  <%= form.submit %>
+<h1>編集する</h1>
 
-  <br>
-  <%= link_to '掲示板一覧画面に戻る', boards_path %>
-  <% end %>
+<%= render 'form' %>
