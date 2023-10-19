@@ -1,0 +1,16 @@
+<h3>以下の内容で送信します</h3>
+
+<%= form_with(model: @board, url: boards_path ) do |form| %>
+  <%= form.hidden_field :author_name %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :body %>
+
+  <p>名前: <%= @board.author_name %></p>
+  <p>タイトル: <%= @board.title %></p>
+  <p>本文: <%= @board.body %></p>
+
+  <%= form.submit "登録する" %>
+  <%= form.submit "戻る", name: 'back' %>
+  <% end %>
+
+  

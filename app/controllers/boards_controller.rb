@@ -8,11 +8,15 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.create(board_params)
-    if @board.save
-      redirect_to new_board_path, notice: "投稿完了しました"
-    else
+    @board = Board.new(board_params)
+    if params[:back]
       render :new
+    else
+      if @board.save
+        redirect_to boards_path, notice: "投稿完了しました"
+      else
+        render :new
+      end
     end
   end
 
@@ -35,6 +39,12 @@ class BoardsController < ApplicationController
     @board.destroy
     redirect_to boards_path, notice:"削除しました！"
   end
+
+  def confirm
+    @board = Board.new(board_params)
+    render :new if @board.invalid?
+  end
+
 
   private
 
