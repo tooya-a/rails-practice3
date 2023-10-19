@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   def index
     @boards = Board.all
+    binding.irb
   end
 
   def new
